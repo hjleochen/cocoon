@@ -38,7 +38,7 @@ describe Cocoon do
           @html = @tester.link_to_add_association('add something', @form_obj, :comments, {:class => 'something silly'})
         end
 
-        it_behaves_like "a correctly rendered add link", {class: 'something silly add_fields' }
+        it_behaves_like "a correctly rendered add link", {class: 'something silly cocoon_add_fields' }
       end
 
       context "and explicitly specifying the wanted partial" do
@@ -101,7 +101,7 @@ describe Cocoon do
             "some long name"
           end
         end
-        it_behaves_like "a correctly rendered add link", {class: 'floppy disk add_fields', text: 'some long name'}
+        it_behaves_like "a correctly rendered add link", {class: 'floppy disk cocoon_add_fields', text: 'some long name'}
       end
 
       context "accepts extra attributes and pass them to link_to" do
@@ -111,7 +111,7 @@ describe Cocoon do
               "some long name"
             end
           end
-          it_behaves_like "a correctly rendered add link", {class: 'floppy disk add_fields', text: 'some long name', :extra_attributes => {'data-something' => 'bla'}}
+          it_behaves_like "a correctly rendered add link", {class: 'floppy disk cocoon_add_fields', text: 'some long name', :extra_attributes => {'data-something' => 'bla'}}
         end
         if Rails.rails4?
           context 'when using the new notation' do
@@ -120,7 +120,7 @@ describe Cocoon do
                 "some long name"
               end
             end
-            it_behaves_like "a correctly rendered add link", {class: 'floppy disk add_fields', text: 'some long name', :extra_attributes => {'data-association-something' => 'foobar'}}
+            it_behaves_like "a correctly rendered add link", {class: 'floppy disk cocoon_add_fields', text: 'some long name', :extra_attributes => {'data-association-something' => 'foobar'}}
           end
         end
       end
@@ -134,7 +134,7 @@ describe Cocoon do
           end
         end
 
-        it_behaves_like "a correctly rendered add link", {class: 'floppy disk add_fields', template: "partiallll", text: 'some long name'}
+        it_behaves_like "a correctly rendered add link", {class: 'floppy disk cocoon_add_fields', template: "partiallll", text: 'some long name'}
       end
     end
 
@@ -189,7 +189,7 @@ describe Cocoon do
         end
         it_behaves_like "a correctly rendered add link", {template: 'partiallll', association: 'person', associations: 'people' }
 
-        #result.to_s.should == '<a href="#" class="add_fields" data-association-insertion-template="partiallll" data-association="person" data-associations="people">add something</a>'
+        #result.to_s.should == '<a href="#" class="cocoon_add_fields" data-association-insertion-template="partiallll" data-association="person" data-associations="people">add something</a>'
       end
     end
 
